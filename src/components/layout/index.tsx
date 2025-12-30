@@ -1,5 +1,5 @@
 import type React from "react";
-import { Footer } from "./footer";
+// import { Footer } from "./footer";
 import { Header } from "./header";
 import type { PropsWithChildren } from "react";
 
