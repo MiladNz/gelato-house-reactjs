@@ -1,12 +1,17 @@
 import type { JSX } from "react";
 import type React from "react";
 import { Swiper, SwiperSlide, type SwiperProps } from "swiper/react";
-import { EffectFade, Navigation } from "swiper/modules";
+import { EffectFade, Navigation, Pagination } from "swiper/modules";
 import "swiper/swiper.css";
-//@ts-ignore: Ignore missing types of swiper
+// @ts-ignore: Ignore missing types of swiper
 import "swiper/css/effect-fade";
 // @ts-ignore: Ignore missing types for swiper styles
 import "swiper/css/navigation";
+// @ts-ignore: Ignore missing types for swiper styles
+import "swiper/css/pagination";
+
+import { ArrowLeft } from "src/components/icons/ArrowLeft";
+import { ArrowRight } from "src/components/icons/ArrowRight";
 
 type Slides = {
   id: number;
@@ -14,26 +19,30 @@ type Slides = {
   alt?: string;
 };
 
-type SliderProps = SwiperProps & {
+type ImageSliderProps = SwiperProps & {
   slides: Slides[];
 };
 
-const Slider: React.FC<SliderProps> = ({ slides, ...props }): JSX.Element => {
+const ImageSlider: React.FC<ImageSliderProps> = ({
+  slides,
+  ...props
+}): JSX.Element => {
   return (
     <div className="relative">
       <button
         id="swiper-button-prev-custom"
         className="absolute left-2 top-1/2 z-10 -translate-y-1/2 bg-primary-500 p-2 text-white">
-        Prev
+        <ArrowLeft />
       </button>
       <button
         id="swiper-button-next-custom"
         className="absolute right-2 top-1/2 z-10 -translate-y-1/2 bg-primary-500 p-2 text-white">
-        Next
+        <ArrowRight />
       </button>
       <Swiper
         {...props}
-        modules={[EffectFade, Navigation]}
+        modules={[EffectFade, Navigation, Pagination]}
+        pagination={{ clickable: true }}
         effect="fade"
         navigation={{
           prevEl: "#swiper-button-prev-custom",
@@ -42,7 +51,7 @@ const Slider: React.FC<SliderProps> = ({ slides, ...props }): JSX.Element => {
         {slides.map((slide) => (
           <SwiperSlide key={slide.id}>
             <div className="flex justify-center items-center">
-              <img src={slide.src} alt={slide.alt} width="80%" height={300} />
+              <img src={slide.src} alt={slide.alt} width="100%" height={300} />
             </div>
           </SwiperSlide>
         ))}
@@ -51,4 +60,4 @@ const Slider: React.FC<SliderProps> = ({ slides, ...props }): JSX.Element => {
   );
 };
 
-export default Slider;
+export default ImageSlider;
