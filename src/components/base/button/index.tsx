@@ -125,16 +125,19 @@ import { clx } from "src/utilities/clx";
 
 type ButtonProps = {
   variant?: "contained" | "outlined" | "text";
-  color?: "primary" | "secondary";
+  color?: "primary" | "secondary" | "info";
   size?: "small" | "medium" | "large";
+  icon?: JSX.Element;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-const buttonBaseStyles = "rounded-full outline-none";
+const buttonBaseStyles =
+  "rounded-full outline-none flex items-center justify-center";
 
 const variants = {
   contained: {
     primary: "bg-primary-500 text-white",
     secondary: "bg-secondary-500 text-white",
+    info: "border border-1 border-gray-200 shadow-md",
     sizes: {
       small: "px-5 py-1 text-sm",
       medium: "px-6 py-2 text-base",
@@ -144,6 +147,7 @@ const variants = {
   outlined: {
     primary: "text-primary-500 border border-primary-500",
     secondary: "text-secondary-500 border border-secondary-500",
+    info: "border border-2 border-gray-300",
     sizes: {
       small: "px-4 py-1 text-sm",
       medium: "px-6 py-2 text-base",
@@ -153,6 +157,7 @@ const variants = {
   text: {
     primary: "text-gray-900",
     secondary: "text-gray-900",
+    info: "border border-2 border-gray-300",
     sizes: {
       small: "p-1 text-sm",
       medium: "p-2 text-base",
@@ -172,6 +177,7 @@ export const Button: React.FC<ButtonProps> = ({
   children,
   color = "secondary",
   size = "medium",
+  icon,
   ...props
 }): JSX.Element => {
   return (
@@ -183,6 +189,7 @@ export const Button: React.FC<ButtonProps> = ({
       )}
       {...props}>
       {children}
+      {icon && <span className="mr-1 rotate-270 mt-1.5">{icon}</span>}
     </button>
   );
 };
