@@ -3,7 +3,7 @@ import type { JSX, PropsWithChildren } from "react";
 
 type ModalProps = {
   title: string;
-  onClose: () => void;
+  onClose?: () => void;
 } & PropsWithChildren;
 
 const Modal: React.FC<ModalProps> = ({
