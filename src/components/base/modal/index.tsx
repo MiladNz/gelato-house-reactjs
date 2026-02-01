@@ -23,7 +23,6 @@ const Modal: React.FC<ModalProps> = ({
             onClick={onClose}>
             &times;
           </i>
-          {/* 16.30 */}
         </div>
         {/* Body */}
         <div className="flex">{children}</div>

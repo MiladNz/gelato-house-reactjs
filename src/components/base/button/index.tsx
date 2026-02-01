@@ -140,7 +140,7 @@ const variants = {
     info: "border border-1 border-gray-200 shadow-md",
     sizes: {
       small: "px-5 py-1 text-sm",
-      medium: "px-6 py-2 text-base",
+      medium: "px-4 py-2 text-base",
       large: "px-7 py-3 text-lg",
     },
   },
@@ -185,7 +185,7 @@ export const Button: React.FC<ButtonProps> = ({
       className={clx(
         buttonBaseStyles,
         variants[variant][color],
-        variants[variant]["sizes"][size]
+        variants[variant]["sizes"][size],
       )}
       {...props}>
       {children}
