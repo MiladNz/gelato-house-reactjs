@@ -2,9 +2,15 @@ import type { JSX } from "react";
 import type React from "react";
 import Modal from "src/components/base/modal";
 
-const NavigationModal: React.FC = (): JSX.Element => {
+type NavigationModalProps = {
+  onClick?: () => void;
+};
+
+const NavigationModal: React.FC<NavigationModalProps> = ({
+  onClick,
+}): JSX.Element => {
   return (
-    <Modal title="لطفا شعبه مورد نظر خود را انتخاب کنید">
+    <Modal title="لطفا شعبه مورد نظر خود را انتخاب کنید" onClose={onClick}>
       <div className="bg-white p-4 rounded-lg shadow-lg w-64">
         <h3 className="text-lg font-bold mb-4">انتخاب شعبه</h3>
         <ul>
