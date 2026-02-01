@@ -1,5 +1,5 @@
-import type { JSX } from "react";
 import type React from "react";
+import type { JSX } from "react";
 import Modal from "src/components/base/modal";
 
 type NavigationModalProps = {
@@ -15,9 +15,9 @@ const NavigationModal: React.FC<NavigationModalProps> = ({
         <h3 className="text-lg font-bold mb-4">انتخاب شعبه</h3>
         <ul>
           <li className="py-2 border-b cursor-pointer">شعبه شهرک غرب</li>
-          <li className="py-2 border-b cursor-pointer">شعبه شهرک ونک</li>
-          <li className="py-2 border-b cursor-pointer">شعبه شهرک نیاوران</li>
-          <li className="py-2 border-b cursor-pointer">شعبه شهرک تجریش</li>
+          <li className="py-2 border-b cursor-pointer">شعبه ونک</li>
+          <li className="py-2 border-b cursor-pointer">شعبه پاسداران</li>
+          <li className="py-2 cursor-pointer">شعبه تجریش</li>
         </ul>
       </div>
     </Modal>
